@@ -43,6 +43,12 @@
     component: './TableList',
   },
   {
+    name: '文件管理',
+    icon: 'file',
+    path: '/fileManager',
+    component: './FileManager',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
