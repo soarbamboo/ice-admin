@@ -98,4 +98,10 @@ declare namespace API {
     description?: string;
     type?: NoticeIconItemType;
   };
+  type Result = {
+    code: number;
+    status: boolean;
+    msg: string;
+    data: any
+  }
 }

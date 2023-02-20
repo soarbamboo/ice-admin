@@ -16,6 +16,13 @@ export default {
       // 依赖 origin 的功能可能需要这个，比如 cookie
       changeOrigin: true,
     },
+    '/api/common/': {
+      // 要代理的地址
+      target: 'http://localhost:8090',
+      // 配置了这个可以从 http 代理到 https
+      // 依赖 origin 的功能可能需要这个，比如 cookie
+      changeOrigin: true,
+    },
   },
   test: {
     '/api/': {
@@ -23,12 +30,26 @@ export default {
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },
+    '/api/common/': {
+      // 要代理的地址
+      target: 'http://localhost:8090',
+      // 配置了这个可以从 http 代理到 https
+      // 依赖 origin 的功能可能需要这个，比如 cookie
+      changeOrigin: true,
+    },
   },
   pre: {
     '/api/': {
       target: 'your pre url',
       changeOrigin: true,
       pathRewrite: { '^': '' },
+    },
+    '/api/common/': {
+      // 要代理的地址
+      target: 'http://localhost:8090',
+      // 配置了这个可以从 http 代理到 https
+      // 依赖 origin 的功能可能需要这个，比如 cookie
+      changeOrigin: true,
     },
   },
 };
