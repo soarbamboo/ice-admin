@@ -6,7 +6,7 @@ WORKDIR /home/ice-admin
 
 COPY  . /home/ice-admin
 COPY package.json /home/ice-admin/
-COPY yarn.lock /home/ice-admin/
+# COPY yarn.lock /home/ice-admin/
 
 # RUN apk update && apk upgrade && apk add --no-cache git 
 # RUN apk install -y procps
