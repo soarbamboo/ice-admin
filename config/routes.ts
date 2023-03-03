@@ -49,6 +49,12 @@
     component: './FileManager',
   },
   {
+    name: '文件列表',
+    icon: 'file',
+    path: '/fileList',
+    component: './FileList',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },
