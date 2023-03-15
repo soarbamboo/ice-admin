@@ -55,6 +55,12 @@
     component: './FileList',
   },
   {
+    name: '文章管理',
+    // icon: 'article',
+    path: '/articleManager',
+    component: './ArticleManager',
+  },
+  {
     path: '/',
     redirect: '/welcome',
   },

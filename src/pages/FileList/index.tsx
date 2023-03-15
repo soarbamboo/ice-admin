@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { getList } from '@/services/ant-design-pro/file';
-import { List, Table } from 'antd';
+import { List, Table, Typography } from 'antd';
 import { useEffect, useState } from 'react';
 
 const FileList: React.FC = () => {
@@ -17,9 +18,20 @@ const FileList: React.FC = () => {
 
   const columns = [
     {
+      title: '图片',
+      dataIndex: 'img',
+      key: 'img',
+      render: (_: any, data: any) => (
+        <div>
+          <img src={data.link} style={{ width: 200, height: 200 }} />
+        </div>
+      ),
+    },
+    {
       title: '图片链接',
       dataIndex: 'link',
       key: 'link',
+      copyable: true,
     },
     {
       title: '图片hash',
