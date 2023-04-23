@@ -1,19 +1,29 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import { getList } from '@/services/ant-design-pro/file';
-import { List, Table, Typography } from 'antd';
+import { Table } from 'antd';
 import { useEffect, useState } from 'react';
 
 const FileList: React.FC = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState({} as any);
+  const [current, setCurrent] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
-  async function getListData() {
-    const result = await getList(1, 10);
+  async function getListData(current: any, pageSize: any) {
+    const result = await getList(current, pageSize);
     if (result.status) {
-      setData(result.data.records);
+      setData(result.data);
     }
   }
+
+  function onChange(page: any, pageSize: any) {
+    setCurrent(page);
+    setPageSize(pageSize);
+    setTimeout(() => {
+      getListData(page, pageSize);
+    });
+  }
   useEffect(() => {
-    getListData();
+    getListData(1, 10);
   }, []);
 
   const columns = [
@@ -51,7 +61,20 @@ const FileList: React.FC = () => {
   ];
   return (
     <div>
-      <Table dataSource={data} columns={columns} />;
+      <Table
+        dataSource={data?.records || []}
+        columns={columns}
+        pagination={{
+          position: ['bottomRight'],
+          current,
+          pageSize,
+          total: data.total,
+          onChange,
+          showQuickJumper: true,
+          showSizeChanger: true,
+        }}
+      />
+      ;
     </div>
   );
 };
