@@ -62,7 +62,7 @@ const FileList: React.FC = () => {
   return (
     <div>
       <Table
-        dataSource={data?.records || []}
+        dataSource={data?.data || []}
         columns={columns}
         pagination={{
           position: ['bottomRight'],
