@@ -10,7 +10,7 @@ export default {
   },
   pre: {
     '/api/': {
-      target: 'https.://api.netbugs.cn/',
+      target: 'https://api.netbugs.cn/',
       changeOrigin: true,
     },
   },
